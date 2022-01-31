@@ -47,3 +47,6 @@ steps:
     ResourceGroupName: 'gitapp'
     SlotName: 'production'
     packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
+    ScriptType: 'Inline Script'
+    InlineScript: 'call npm install --only=prod --ignore-scripts'
+    WebConfigParameters: '-Handler iisnode -NodeStartFile server.js -appType node'
